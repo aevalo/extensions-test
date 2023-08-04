@@ -19,7 +19,12 @@ Install packages
 pip install -r requirements/requirements.txt
 ```
 
-Build package
+Build Python package
 ```sh
 ./setup.py build
+```
+
+Build Cython package
+```sh
+setup.py build_ext --inplace
 ```
