@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+require "bundler/gem_tasks"
+require "rake/testtask"
+require 'rubocop/rake_task'
+require 'rspec/core/rake_task'
+
+task default: %i[rubocop spec test]
+
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = FileList['spec/**/*_spec.rb']
+end
+
+Rake::TestTask.new do |t|
+  t.libs << "test"
+end
+
+desc 'Run rubocop'
+task :rubocop do
+  RuboCop::RakeTask.new
+end
