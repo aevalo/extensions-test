@@ -1,15 +1,17 @@
-require "hola"
+# frozen_string_literal: true
+
+require 'hola'
 
 RSpec.describe Hola do
-  it "it return correct translation for English" do
-    expect(Hola.hi("english")).to eq("hello world")
+  it 'returns correct translation for English' do
+    expect(described_class.hi('english')).to eq('hello world')
   end
 
-  it "it return default translation for unsupported language" do
-    expect(Hola.hi("ruby")).to eq("hello world")
+  it 'returns default translation for unsupported language' do
+    expect(described_class.hi('ruby')).to eq('hello world')
   end
 
-  it "it return correct translation for Spanish" do
-    expect(Hola.hi("spanish")).to eq("hola mundo")
+  it 'returns correct translation for Spanish' do
+    expect(described_class.hi('spanish')).to eq('hola mundo')
   end
 end

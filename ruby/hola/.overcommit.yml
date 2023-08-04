@@ -1,0 +1,15 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    command: ['rake', 'rubocop'] # Invoke with rake
+  Reek:
+    enabled: true
+    command: ['rake', 'reek'] # Invoke with rake
+
+PrePush:
+  Minitest:
+    enabled: true
+    command: ['rake', 'test'] # Invoke with rake
+  RSpec:
+    enabled: true
+    command: ['rake', 'spec'] # Invoke with rake

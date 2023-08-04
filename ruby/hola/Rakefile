@@ -1,21 +1,29 @@
 # frozen_string_literal: true
 
-require "bundler/gem_tasks"
-require "rake/testtask"
+require 'bundler/gem_tasks'
+require 'rake/testtask'
+require 'reek/rake/task'
 require 'rubocop/rake_task'
 require 'rspec/core/rake_task'
 
-task default: %i[rubocop spec test]
+task default: %i[rubocop reek spec test]
 
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
 Rake::TestTask.new do |t|
-  t.libs << "test"
+  t.libs << 'test'
 end
 
 desc 'Run rubocop'
 task :rubocop do
   RuboCop::RakeTask.new
+end
+
+desc 'Run reek'
+Reek::Rake::Task.new do |t|
+  t.config_file   = '.reek.yml'
+  t.fail_on_error = false
+  t.source_files = FileList['lib/**/*.rb', 'test/**/*.rb', 'spec/**/*.rb']
 end

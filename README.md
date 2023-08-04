@@ -7,3 +7,8 @@ Install gems:
 ```sh
 bundler
 ```
+
+Install Git hooks:
+```sh
+bundler exec overcommit --install
+```

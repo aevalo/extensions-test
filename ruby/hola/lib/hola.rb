@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # The main Hola driver
 class Hola
   # Say hi to the world!
@@ -9,7 +11,7 @@ class Hola
   # Arguments:
   #   language: (String)
 
-  def self.hi(language = "english")
+  def self.hi(language = 'english')
     translator = Translator.new(language)
     translator.hi
   end
